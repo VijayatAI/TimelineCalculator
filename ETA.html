@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ETA Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 4px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .btn-calculate {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-calculate:hover {
+      background-color: #45a049;
+    }
+
+    #deliveryDate {
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function calculateDeliveryDate() {
+      var avgTime = parseFloat(document.getElementById("avgTime").value);
+      var numResources = parseInt(document.getElementById("numResources").value);
+      var targetCount = parseInt(document.getElementById("targetCount").value);
+
+      var totalDays = Math.ceil((targetCount * avgTime) / numResources);
+      var today = new Date();
+      var deliveryDate = new Date(today.getTime() + totalDays * 24 * 60 * 60 * 1000);
+
+      var deliveryDateString = deliveryDate.toLocaleDateString();
+      document.getElementById("deliveryDate").innerHTML = deliveryDateString;
+      var hiddenHeading = document.getElementById("hiddenHeading");
+      hiddenHeading.style.display = "block";
+
+    }
+  </script>
+</head>
+<body>
+  <h1>ETA Calculator</h1>
+  
+  <form>
+    <div class="form-group">
+      <label for="avgTime">Average Time to Complete a Script (in days):</label>
+      <input type="text" id="avgTime" placeholder="Enter average time" required>
+    </div>
+
+    <div class="form-group">
+      <label for="numResources">Number of Available Developers:</label>
+      <input type="text" id="numResources" placeholder="Enter number of developers" required>
+    </div>
+
+    <div class="form-group">
+      <label for="targetCount">Target Script Count:</label>
+      <input type="text" id="targetCount" placeholder="Enter target sources count" required>
+    </div>
+
+    <div class="form-group">
+      <input type="button" value="Calculate" class="btn-calculate" onclick="calculateDeliveryDate()">
+    </div>
+
+    <div class="form-group">
+      <label for="deliveryDate">Delivery Date:</label>
+      <span id="deliveryDate"></span>
+      <h3 id="hiddenHeading" style="display: none;">The delivery timeline has been calculated based on below workflow.
+        <br>
+        1. Source Complexity Analysis
+        <br>
+        2. Script Development
+        <br> 
+        3. Load testing 
+        <br>
+        4. QA and Feedback Fixes
+        <br> 5. Stealth modules implementation
+        <br> 6. Performing load test with full callcount and setup with workable machines.
+        <br>
+        7. Run-time support
+
+      </h3>
+    </div>
+  </form>
+</body>
+</html>
