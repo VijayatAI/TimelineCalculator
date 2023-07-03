@@ -80,10 +80,16 @@
       var deliveryDateString = deliveryDate.toLocaleDateString();
 
       document.getElementById("deliveryDate").innerHTML = deliveryDateString;
-      var heading1 = document.getElementById("heading1");
-      heading1.style.display = "block";
+      
 
     }
+
+    function showHeading() {
+      var heading1 = document.getElementById("heading1");
+      heading1.style.display = "block";
+    }
+
+
   </script>
 </head>
 <body>
@@ -109,10 +115,16 @@
       <input type="button" value="Calculate" class="btn-calculate" onclick="calculateDeliveryDate()">
     </div>
 
+    
+
     <div class="form-group">
       <label for="deliveryDate">Delivery Date:</label>
       <span id="deliveryDate"></span>
-      <h3 id="heading1" style="display: none;">The delivery timeline has been calculated based on below workflow.
+      
+    </div>
+
+    <a href="#" onclick="showdetails()">More about Avg.Time</a>
+    <h3 id="heading1" style="display: none;">The delivery timeline has been calculated based on below workflow.
         <br>
         1. Source Complexity Analysis
         <br>
@@ -127,7 +139,6 @@
         7. Run-time support
 
       </h3>
-    </div>
   </form>
 </body>
 </html>
