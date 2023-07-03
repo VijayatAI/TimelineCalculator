@@ -70,8 +70,8 @@
 
       var deliveryDateString = deliveryDate.toLocaleDateString();
       document.getElementById("deliveryDate").innerHTML = deliveryDateString;
-      var hiddenHeading = document.getElementById("hiddenHeading");
-      hiddenHeading.style.display = "block";
+      var heading1 = document.getElementById("heading1");
+      heading1.style.display = "block";
 
     }
   </script>
@@ -91,8 +91,8 @@
     </div>
 
     <div class="form-group">
-      <label for="targetCount">Target Script Count:</label>
-      <input type="text" id="targetCount" placeholder="Enter target sources count" required>
+      <label for="targetCount">Targetted Scripts Count:</label>
+      <input type="text" id="targetCount" placeholder="Enter targetted sources count" required>
     </div>
 
     <div class="form-group">
@@ -102,7 +102,7 @@
     <div class="form-group">
       <label for="deliveryDate">Delivery Date:</label>
       <span id="deliveryDate"></span>
-      <h3 id="hiddenHeading" style="display: none;">The delivery timeline has been calculated based on below workflow.
+      <h3 id="heading1" style="display: none;">The delivery timeline has been calculated based on below workflow.
         <br>
         1. Source Complexity Analysis
         <br>
