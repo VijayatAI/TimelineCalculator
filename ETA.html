@@ -65,10 +65,20 @@
       var targetCount = parseInt(document.getElementById("targetCount").value);
 
       var totalDays = Math.ceil((targetCount * avgTime) / numResources);
-      var today = new Date();
-      var deliveryDate = new Date(today.getTime() + totalDays * 24 * 60 * 60 * 1000);
+      var startDate = new Date();
+      var currentDate = new Date(startDate.getTime());
+      var elapsedDays = 0;
 
+      while (elapsedDays < totalDays) {
+        currentDate.setDate(currentDate.getDate() + 1);
+        if (currentDate.getDay() !== 0 && currentDate.getDay() !== 6) {
+          elapsedDays++;
+        }
+      }
+
+      var deliveryDate = new Date(currentDate.getTime());
       var deliveryDateString = deliveryDate.toLocaleDateString();
+
       document.getElementById("deliveryDate").innerHTML = deliveryDateString;
       var heading1 = document.getElementById("heading1");
       heading1.style.display = "block";
